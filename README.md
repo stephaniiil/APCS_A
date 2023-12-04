@@ -1,2 +1,2 @@
 # APCS_A
-CLass
+APCS_A Class
