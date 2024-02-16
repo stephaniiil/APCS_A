@@ -38,13 +38,14 @@ def check(choice):
         print("#  -> Correct word +lives * 10 pts   #")
         print("#  -> Wrong word +0 pts              #")
         print("\n======================================\n")
-        return menu()
+        loop = input("Return to menu: ")
+        if loop is not None:
+            return menu()
     elif 2 <= choice <= 5:
         answer = wordlist(choice)  # select a word from chosen wordlist
         return answer
     elif choice == 6:
         scoreboard()  # sort and display scoreboard
-        return menu()
 
 
 # select a word from chosen wordlist
@@ -73,28 +74,36 @@ def game(answer):
     chance = len(str(answer)) - 1
     print("\nWord length:", len(str(answer)), "\nLives:", chance)
     temp = 0
+    update = [] # store guess
+    k = 0
+    while k < len(str(answer)):
+        update += '#'
+        k += 1
     while chance > 0:
         guess = input("\nEnter guess letter or word: ")
         if len(guess) == 1:
-            position = 1
+            position = 0
             correct = False
             for i in answer:
                 if guess == i:  # letter guess
-                    print("The letter '", guess, "' is correct at position", position)
+                    update[position] = i # update guess
                     temp += 1
                     correct = True
                 position += 1
             if not correct:
-                print("The letter '", guess, "' is wrong")
+                print("\nThe letter '", guess, "' is wrong")
                 temp -= 1
+                chance -= 1
         elif guess == answer:  # correct word guess
             print("The word '", guess, "' is correct")
             temp += chance * 10
             break
         else:
             print("The word '", guess, "' is wrong")
-        chance -= 1
-        print("Lives:", chance)
+            chance -= 1
+        for i in update:
+            print(i, end = '')
+        print("\nLives:", chance)
     if chance == 0:
         print("Sorry! You ran out of lives:( The word is", answer)
     scoring(temp)
@@ -129,7 +138,9 @@ def scoring(temp):
         file.writelines(new)
         file.write(update)
     print(temp, "pts added to", name)
-    return menu()
+    loop = input("Return to menu: ")
+    if loop is not None:
+        return menu()
 
 
 # sort and display scoreboard
@@ -152,10 +163,17 @@ def scoreboard():
     print("\n============= SCOREBOARD =============\n")
     rank = 1
     for name, score in scores:
-        print("#  ", rank, name, score)
+        space = ''
+        k = 0
+        while k < 15 - len(name):
+            space += ' '
+            k += 1
+        print("#  ", rank, name, space, score)
         rank += 1
     print("\n======================================\n")
-    return menu()
+    loop = input("Return to menu: ")
+    if loop is not None:
+        return menu()
 
 
 # sort function for scoreboard
