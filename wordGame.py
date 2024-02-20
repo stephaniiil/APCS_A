@@ -1,8 +1,19 @@
 import random
+from os import system, name
+from time import sleep
+
+
+# clear terminal
+def clear():
+    if name == 'nt':
+        _ = system('cls')
+    else:
+        _ = system('clear')
 
 
 # display menu
 def menu():
+    clear()
     print("\n================ MENU ================\n")
     print("#   1 View instructions              #")
     print("#   2 Word list: Desserts            #")
@@ -22,6 +33,8 @@ def menu():
                 return check(choice)  # check choice
             elif choice == 7:
                 print("Thank you for playing!")
+                sleep(2)
+                clear()
                 exit()
 
 
