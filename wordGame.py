@@ -5,10 +5,10 @@ from time import sleep
 
 # clear terminal
 def clear():
-    if name == 'nt':
-        _ = system('cls')
+    if name == "nt":
+        _ = system("cls")
     else:
-        _ = system('clear')
+        _ = system("clear")
 
 
 # display menu
@@ -87,10 +87,10 @@ def game(answer):
     chance = len(str(answer)) - 1
     print("\nWord length:", len(str(answer)), "\nLives:", chance)
     temp = 0
-    update = [] # store guess
+    update = []  # store guess
     k = 0
     while k < len(str(answer)):
-        update += '#'
+        update += "#"
         k += 1
     while chance > 0:
         guess = input("\nEnter guess letter or word: ")
@@ -99,7 +99,7 @@ def game(answer):
             correct = False
             for i in answer:
                 if guess == i:  # letter guess
-                    update[position] = i # update guess
+                    update[position] = i  # update guess
                     temp += 1
                     correct = True
                 position += 1
@@ -115,7 +115,7 @@ def game(answer):
             print("The word '", guess, "' is wrong")
             chance -= 1
         for i in update:
-            print(i, end = '')
+            print(i, end="")
         print("\nLives:", chance)
     if chance == 0:
         print("Sorry! You ran out of lives:( The word is", answer)
@@ -170,16 +170,16 @@ def scoreboard():
         scores.append((name, score))
 
     # sort scoreboard entries by score
-    scores.sort(reverse = True, key = sort)
+    scores.sort(reverse=True, key=sort)
 
     # display scoreboard entries
     print("\n============= SCOREBOARD =============\n")
     rank = 1
     for name, score in scores:
-        space = ''
+        space = ""
         k = 0
         while k < 15 - len(name):
-            space += ' '
+            space += " "
             k += 1
         print("#  ", rank, name, space, score)
         rank += 1
