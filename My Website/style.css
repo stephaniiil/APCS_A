@@ -1,0 +1,104 @@
+#page {
+    background: linear-gradient(#390270, #ed85be);
+    font-family: "Optima", sans-serif;
+}
+header {
+    font-family: "Optima", sans-serif;
+    color: #FFFFFF;
+    text-align: left;
+    width: 98%;
+    padding: 5px;
+    position: relative;
+}
+header .logo {
+    top: 5px;
+    left: 5px;
+    float: left;
+    height: 100px;
+    position: absolute;
+}
+header h1 {
+    font-family: "Brush Script MT", cursive;
+    font-size: 3.5em;
+    font-weight: normal;
+    top: 5px;
+    left: 15px;
+    position: absolute;
+    z-index: 1;
+}
+nav {
+    font-family: "Optima", sans-serif;
+    text-align: right;
+    position: relative;
+    padding: 5px;
+}
+nav li {
+    display: inline;
+}
+nav a {
+    color: #ffffff;
+}
+nav a:hover {
+    color: #f5ca0c;
+}
+section {
+    font-family: "Optima", sans-serif;
+    width: 98%;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+article.one {
+    background-color: #FFFFFF;
+    text-align: left;
+    width: 100%;
+    padding: 10px;
+    position: relative;
+    border-right: solid #5c257e;
+}
+article.two {
+    background-color: #FFFFFF;
+    text-align: left;
+    width: 100%;
+    padding: 10px;
+    position: relative;
+    border-left: solid #5c257e;
+    overflow: hidden;
+}
+article h3 {
+    font-family: "Luminari", fantasy;
+}
+article h4 {
+    font-size: 1.17em;
+    font-weight: normal;
+}
+article ul {
+    list-style: none;
+}
+
+article ul li:before {
+    content: '✓ ';
+}
+footer {
+    background-color: #FFFFFF;
+    text-align: center;
+    padding: 1px;
+    clear: both;
+}
+.textcenter {
+    text-align: center;
+}
+.imgcenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.enlarge {
+    transition: transform 3s;
+    transform-origin: top center;
+}
+img.enlarge:hover {
+    transform: scale(1.55);
+    position: relative;
+}
