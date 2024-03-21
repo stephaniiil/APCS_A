@@ -23,8 +23,10 @@ let input = document.querySelector('input[type="text"]');
 
 correctText.addEventListener('click', function() {
     if (input.value == "Ruy Lopez") {
+        input.style.backgroundColor = 'green';
         textP.textContent = "Correct!";
     } else {
+        input.style.backgroundColor = 'red';
         textP.textContent = "Incorrect";
     }
 })
